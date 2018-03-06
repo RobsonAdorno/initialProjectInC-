@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 namespace ExercicioEcoville.Model
 {
     public class ClasseDeModelo
@@ -8,4 +9,6 @@ namespace ExercicioEcoville.Model
         public string cpf { get; set; }
 
     }
+
+
 }
