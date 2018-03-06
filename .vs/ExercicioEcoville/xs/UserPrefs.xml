@@ -1,7 +1,9 @@
 ﻿<Properties StartupConfiguration="{82C23572-E7F3-4E13-B9F1-66D248D3B9F5}|Default">
-  <MonoDevelop.Ide.Workbench ActiveDocument="ExercicioEcoville/Program.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="ExercicioEcoville/ValidationCPF/ValidationCPF.cs">
     <Files>
-      <File FileName="ExercicioEcoville/Program.cs" Line="1" Column="1" />
+      <File FileName="ExercicioEcoville/View(Main)/Program.cs" Line="3" Column="1" />
+      <File FileName="ExercicioEcoville/Model/ClasseDeModelo.cs" Line="11" Column="2" />
+      <File FileName="ExercicioEcoville/ValidationCPF/ValidationCPF.cs" Line="6" Column="9" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.ItemProperties.ExercicioEcoville PreferredExecutionTarget="MonoDevelop.Default" />
