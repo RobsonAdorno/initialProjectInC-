@@ -35,6 +35,7 @@ namespace ExercicioEcoville
                 Console.WriteLine("9 - Listar Vendas por Cliente:");
                 Console.WriteLine("=============================");
                 Console.WriteLine("0 - Sair:");
+                Console.WriteLine("=============================");
                 op = Console.ReadLine();
                 opcao = "N";
 
@@ -46,18 +47,30 @@ namespace ExercicioEcoville
 
                         Console.WriteLine("Digite o cpf, por favor!");
                         CM.cpf = Console.ReadLine();
-                        if (VC.Valida(CM.cpf) == false)
-                        {
-                            Console.WriteLine("CPF INVÁLIDO!");
-                        }
-                        else
-                        {
-                            
+
+                            do
+                            {
+                            if (VC.Valida(CM.cpf) == true)
+                            {
+                                Console.WriteLine("CPF VÁLIDO!");
+                            }
+                            else
+                            {
+                                Console.WriteLine("CPF INVÁLIDO");
+                                Console.WriteLine("Digite o cpf novamente, por favor!");
+                                CM.cpf = Console.ReadLine();
+                            }
+                            } while (VC.Valida(CM.cpf) == false);
+                            Console.WriteLine("CPF VÁLIDO!");
                             Console.WriteLine("Deseja sair? [S/N]");
                             opcao = Console.ReadLine();
+                            if (opcao.Equals("S") || opcao.Equals("s"))
+                            {
+                                Environment.Exit(1);
+                            }
 
-                        }
                         break;
+                        
                     case "2":
                         Console.WriteLine("Nome do cliente é : " + CM.nome);
                         break;
