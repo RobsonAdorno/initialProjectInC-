@@ -54,7 +54,7 @@ namespace ExercicioEcoville
                         CM.cpf = Console.ReadLine();
 
 
-                        if ((VC.Valida(CM.cpf) == true))
+                        if ((VC.Valida(CM.cpf) == true) && (!A.Contains(CM.cpf)))
                         {
 
                             Console.WriteLine("CPF VÁLIDO!");
@@ -63,9 +63,10 @@ namespace ExercicioEcoville
                         }
                         else
                         {
-                            Console.WriteLine("CPF INVÁLIDO!");
+                            Console.WriteLine("CPF INVÁLIDO OU JÁ EXISTENTE NA BASE DE DADOS!");
+                            VC.Valida(CM.cpf).Equals(false);
 
-                            while (VC.Valida(CM.cpf) == false)
+                            while (VC.Valida(CM.cpf).Equals(false) && (A.Contains(CM.cpf)))
                             {
                                 Console.WriteLine("Digite o cpf novamente, por favor!");
                                 CM.cpf = Console.ReadLine();
@@ -83,12 +84,20 @@ namespace ExercicioEcoville
 
                     case "2":
 
-                        if (A != null)
+                        if (A != null) 
                         {
 
                             foreach (var item in A)
                             {
+                                Console.WriteLine("Os seguintes CPF's estão cadastrados: \n");
                                 Console.WriteLine(item);
+
+                                Console.WriteLine("Deseja sair? [S/N]");
+                                opcao = Console.ReadLine();
+                                if (opcao.Equals("S") || opcao.Equals("s"))
+                                {
+                                    Environment.Exit(1);
+                                }
                             }
                         }
                         else
