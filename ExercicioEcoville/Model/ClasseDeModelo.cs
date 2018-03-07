@@ -7,8 +7,8 @@ namespace ExercicioEcoville.Model
 
         public string nome { get; set; }
         public string cpf { get; set; }
+        public HashSet<string> vetorDeCliente { get; set; }
+
 
     }
-
-
 }

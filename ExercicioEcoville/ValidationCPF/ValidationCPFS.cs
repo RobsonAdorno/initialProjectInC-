@@ -6,6 +6,10 @@ namespace ExercicioEcoville.ValidationCPF
 {
     public class ValidationCPFS
     {
+        
+        ClasseDeModelo cliente = new ClasseDeModelo();
+        HashSet<string> VetorDeClientes = new HashSet<string>();
+       
 
         public bool Valida(string cpf)
         {
@@ -72,19 +76,53 @@ namespace ExercicioEcoville.ValidationCPF
             digito = resto.ToString();
             dgsVerificadores += digito;
 
-            if ((dgsVerificadores) == cpf.Remove(0, 9))
+            if (((dgsVerificadores) == cpf.Remove(0, 9)))
             {
-
                 return true;
             }
-            else
-            {
-                return false;
-            }
-
+            return false;
         }
 
+        public bool ValidadorCPF(string cpf)
+        {
+            if ((Valida(cpf) == true) && (!VetorDeClientes.Contains(cpf)))
+            {
+                Console.WriteLine("CPF VÁLIDO!");
+                VetorDeClientes.Add(cpf);
 
-    }
+                Console.WriteLine("Deseja sair? [S/N]");
+                string opcao = Console.ReadLine();
+                if (opcao.Equals("S") || opcao.Equals("s"))
+                {
+                    Environment.Exit(1);
+                }else if(opcao.Equals("N") || opcao.Equals("n")){
+                    
+                }
+
+            }
+            else{
+                
+                while ((Valida(cpf)) == false)
+                {
+                    Console.WriteLine("Digite o cpf novamente, por favor!");
+                    string cpf2 = Console.ReadLine();
+                    ValidadorCPF(cpf2);
+                }
+
+            }
+
+            return true;
+            }
+            
+        }
+
+  
+
+
+
 }
+
+
+
+
 
