@@ -17,7 +17,7 @@ namespace ExercicioEcoville
             ProdutoClass produto = new ProdutoClass();
            
             string op;
-            string opcao = "S";
+          //  string opcao = "S";
             do
             {
                 Console.WriteLine("Selecione a opção desejada:");
@@ -49,45 +49,25 @@ namespace ExercicioEcoville
                     case "1":
                         Console.WriteLine("Digite o nome, por favor!");
                         CM.nome = Console.ReadLine();
-
                         Console.WriteLine("Digite o cpf, por favor!");
                         CM.cpf = Console.ReadLine();
-
                         VC.ValidadorCPF(CM.cpf);
-
-                        Console.WriteLine("Deseja sair? [S/N]");
-                        opcao = Console.ReadLine();
-                        if (opcao.Equals("S") || opcao.Equals("s"))
-                        {
-                            Environment.Exit(1);
-                        }
                         break;
+                    case "2":
+                        if (VC.VerificationArray() != null) 
+                        {
+                            foreach (var item in VC.VerificationArray())
+                            {
+                                Console.WriteLine("Os seguintes CPF's estão cadastrados: ");
+                                Console.WriteLine(item);
+                            }
+                        }
+                        else
+                        {
+                            Console.WriteLine("Esse Array está vazio!");
+                        }
 
-
-                    //case "2":
-
-                        //if (CM.vetorDeCliente != null) 
-                        //{
-
-                        //    foreach (var item in CM.vetorDeCliente)
-                        //    {
-                        //        Console.WriteLine("Os seguintes CPF's estão cadastrados: \n");
-                        //        Console.WriteLine(item);
-
-                        //        Console.WriteLine("Deseja sair? [S/N]");
-                        //        opcao = Console.ReadLine();
-                        //        if (opcao.Equals("S") || opcao.Equals("s"))
-                        //        {
-                        //            Environment.Exit(1);
-                        //        }
-                        //    }
-                        //}
-                        //else
-                        //{
-                        //    Console.WriteLine("Esse Array está vazio!");
-                        //}
-
-                        //break;
+                        break;
 
                     //case "3":
                     //    Console.WriteLine("Digite o nome, por favor!");
@@ -252,7 +232,7 @@ namespace ExercicioEcoville
                         Environment.Exit(0);
                         break;
                 }
-            } while (!opcao.Equals("N"));
+            } while (!VC.CallBack().Equals("N"));
             }
             }
     }

@@ -9,6 +9,7 @@ namespace ExercicioEcoville.ValidationCPF
         
         ClasseDeModelo cliente = new ClasseDeModelo();
         HashSet<string> VetorDeClientes = new HashSet<string>();
+       // int contador = 0;
        
 
         public bool Valida(string cpf)
@@ -83,37 +84,56 @@ namespace ExercicioEcoville.ValidationCPF
             return false;
         }
 
-        public bool ValidadorCPF(string cpf)
+        public void ValidadorCPF(string cpf)
         {
+
             if ((Valida(cpf) == true) && (!VetorDeClientes.Contains(cpf)))
             {
                 Console.WriteLine("CPF VÁLIDO!");
                 VetorDeClientes.Add(cpf);
-
-                Console.WriteLine("Deseja sair? [S/N]");
-                string opcao = Console.ReadLine();
-                if (opcao.Equals("S") || opcao.Equals("s"))
-                {
-                    Environment.Exit(1);
-                }else if(opcao.Equals("N") || opcao.Equals("n")){
-                    
-                }
+                return;
 
             }
-            else{
-                
-                while ((Valida(cpf)) == false)
+            else
+            {
+
+                do
                 {
                     Console.WriteLine("Digite o cpf novamente, por favor!");
-                    string cpf2 = Console.ReadLine();
-                    ValidadorCPF(cpf2);
+                    cpf = Console.ReadLine();
+                    Valida(cpf);
+
+                } while ((Valida(cpf)) == false);
+                    
+                    
                 }
-
             }
 
-            return true;
+        public string CallBack(){
+
+            Console.WriteLine("Deseja sair? [S/N]");
+            string opcao = Console.ReadLine();
+            if (opcao.Equals("S") || opcao.Equals("s"))
+            {
+                Environment.Exit(1);
             }
-            
+
+            return opcao;
+
+        }
+
+        public HashSet<string> VerificationArray(){
+
+            foreach (var item in VetorDeClientes)
+            {
+                Console.WriteLine(item);
+            }
+            return VetorDeClientes;
+
+        }
+
+
+
         }
 
   
