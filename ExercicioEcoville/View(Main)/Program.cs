@@ -1,6 +1,7 @@
 ﻿using System;
 using ExercicioEcoville.Model;
 using ExercicioEcoville.ValidationCPF;
+using ExercicioEcoville.ValidationProduct;
 using System.Collections.Generic;
 
 namespace ExercicioEcoville
@@ -15,6 +16,8 @@ namespace ExercicioEcoville
             ValidationCPFS VC = new ValidationCPFS();
             VendedorClass vendedor = new VendedorClass();
             ProdutoClass produto = new ProdutoClass();
+            ValidarObjetos objeto = new ValidarObjetos();
+
            
             string op;
           //  string opcao = "S";
@@ -66,9 +69,18 @@ namespace ExercicioEcoville
                        break;
 
                     case "4":
-                        VerificationArrayOfSalesman();
+                        VC.VerificationArrayOfSalesman();
                         break;
 
+                    case "5":
+                        Console.WriteLine("Digite o nome do produto, por favor!");
+                        produto.nome = Console.ReadLine();
+                        Console.WriteLine("Digite o preço do produto, por favor!");
+                        produto.preco = double.Parse(Console.ReadLine());
+                        Console.WriteLine("Digite a quantidade do produto, por favor!");
+                        produto.quantidade = int.Parse(Console.ReadLine());
+                        objeto.ValidandoNomes();
+                        break;
                     //case "6":
 
                     //    if (produto.vetorDeProduto != null)

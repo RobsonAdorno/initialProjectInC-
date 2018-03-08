@@ -166,8 +166,6 @@ namespace ExercicioEcoville.ValidationCPF
                     Console.WriteLine("Os seguintes CPF's dos vendedores estão cadastrados: ");
                     Console.WriteLine(item);
                 }
-
-
             }
             else
             {

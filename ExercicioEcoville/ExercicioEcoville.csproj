@@ -9,5 +9,6 @@
     <Folder Include="View%28Main%29\" />
     <Folder Include="Model\" />
     <Folder Include="ValidationCPF\" />
+    <Folder Include="ValidationProduct\" />
   </ItemGroup>
 </Project>
