@@ -8,7 +8,9 @@ namespace ExercicioEcoville.ValidationCPF
     {
         
         ClasseDeModelo cliente = new ClasseDeModelo();
+        VendedorClass vendedor = new VendedorClass();
         HashSet<string> VetorDeClientes = new HashSet<string>();
+        HashSet<string> VetorDeVendedores = new HashSet<string>();
        // int contador = 0;
        
 
@@ -90,7 +92,20 @@ namespace ExercicioEcoville.ValidationCPF
             if ((Valida(cpf) == true) && (!VetorDeClientes.Contains(cpf)))
             {
                 Console.WriteLine("CPF VÁLIDO!");
-                VetorDeClientes.Add(cpf);
+                Console.WriteLine("Qual a sua ocupação??");
+                string op = Console.ReadLine();
+                switch(op){
+                    case "Cliente":
+                        VetorDeClientes.Add(cpf);
+                        break;
+
+                    case "Vendedores":
+                        VetorDeVendedores.Add(cpf);
+                        break;
+
+                    default:
+                        break;
+                }
                 return;
 
             }
@@ -99,9 +114,9 @@ namespace ExercicioEcoville.ValidationCPF
 
                 do
                 {
-                    Console.WriteLine("Digite o cpf novamente, por favor!");
+                    Console.WriteLine("Erro! Digite o cpf novamente, por favor!");
                     cpf = Console.ReadLine();
-                    Valida(cpf);
+                    ValidadorCPF(cpf);
 
                 } while ((Valida(cpf)) == false);
                     
@@ -124,11 +139,43 @@ namespace ExercicioEcoville.ValidationCPF
 
         public HashSet<string> VerificationArray(){
 
+            if (VetorDeClientes != null)
+            {
+
             foreach (var item in VetorDeClientes)
             {
-                Console.WriteLine(item);
+                        Console.WriteLine("Os seguintes CPF's dos clientes estão cadastrados: ");
+                        Console.WriteLine(item);
+                }
+            
+            
+            }else{
+                    Console.WriteLine("Esse Array está vazio!");
+                }
+            return VetorDeClientes;
+            }
+
+        public HashSet<string> VerificationArrayOfSalesman()
+        {
+
+            if (VetorDeVendedores != null)
+            {
+
+                foreach (var item in VetorDeClientes)
+                {
+                    Console.WriteLine("Os seguintes CPF's dos vendedores estão cadastrados: ");
+                    Console.WriteLine(item);
+                }
+
+
+            }
+            else
+            {
+                Console.WriteLine("Esse Array está vazio!");
             }
             return VetorDeClientes;
+        }
+            
 
         }
 
@@ -140,7 +187,7 @@ namespace ExercicioEcoville.ValidationCPF
 
 
 
-}
+
 
 
 
