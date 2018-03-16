@@ -75,6 +75,7 @@ namespace ExercicioEcoville
                     case "5":
                         Console.WriteLine("Digite o nome do produto, por favor!");
                         produto.nome = Console.ReadLine();
+                       
                         Console.WriteLine("Digite o preço do produto, por favor!");
                         produto.preco = double.Parse(Console.ReadLine());
                         Console.WriteLine("Digite a quantidade do produto, por favor!");
